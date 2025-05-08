@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Trang Bio Cá Nhân</title>
+    <title>dungxnogay's bio</title>
     <style>
         * {
             margin: 0;
