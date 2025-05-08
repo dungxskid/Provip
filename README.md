@@ -127,9 +127,10 @@
     <div class="parallax-bg" id="parallaxBg"></div>
     
     <div class="bio-container" id="bio">
-        <img src="https://via.placeholder.com/150" alt="Avatar" class="avatar">
+        <img src=https://cdn.discordapp.com/attachments/1335849309090091028/1369327049713520702/IMG_1468.jpg?ex=681d6ef1&is=681c1d71&hm=01011ff3003c12cc28aa402fb2cc42cf7387b1eaf0af8c85f3b4430ae439e1b3&" 
+        alt="Avatar" class="avatar">
         <h1>hi,iam dungxnogay</h1>
-        <p>learn code in 3month</p>
+        <p>not saygex as you as </p>
         <p>name,alias:Bui Tien Dung,[Kuri]</p>
         <p>age:12</p>
         <p>best skill in life:lazy :D</p>
@@ -137,10 +138,9 @@
 <p>note:i learn code to desgin web,cheat roblox :D</p>
 <p>note2:learn code is to easy</p>
         <div class="social-links">
-            <a href="#" style="background: #3b5998;"><i class="fab fa-facebook-f"></i></a>
-            <a href="Dũng Bùi" style="background: #1da1f2;"><i class="fab fa-twitter"></i></a>
-            <a href="Iamkuri" style="background: #0077b5;"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#" style="background: #333;"><i class="fab fa-github"></i></a>
+            <a href="Dũng Bùi" style="background: #3b5998;"><i class="fab fa-facebook-f"></i></a>
+            <a href="Iamkuri" style="background: #1da1f2;"><i class="fab fa-twitter"></i></a>
+            <a href="dungxskid" style="background: #333;"><i class="fab fa-github"></i></a>
         </div>
     </div>
 
@@ -151,7 +151,7 @@
 
     <!-- Phần tử audio cho nhạc nền -->
     <audio id="bgMusic" loop>
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        <source src="https://m.soundcloud.com/hyan3official/th-p-drill-t-do-mck-prod-gaz-2" type="audio/mpeg">
         Trình duyệt của bạn không hỗ trợ audio ;D.
     </audio>
 
