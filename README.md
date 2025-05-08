@@ -98,7 +98,30 @@
             z-index: 1;
             will-change: transform;
         }
+        
+        .music-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+        
+        .music-control i {
+            font-size: 24px;
+            color: #333;
+        }
     </style>
+    <!-- Thêm Font Awesome cho icon nhạc -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <div class="parallax-bg" id="parallaxBg"></div>
@@ -106,29 +129,42 @@
     <div class="bio-container" id="bio">
         <img src="https://via.placeholder.com/150" alt="Avatar" class="avatar">
         <h1>hi,iam dungxnogay</h1>
-        <p>like code,create website and hack</p>
-        <p>name,alias:Bui Tien Dung [kuri]</p>
-        <p>skill: lua,py,Html</p>
+        <p>learn code in 3month</p>
+        <p>name,alias:Bui Tien Dung,[Kuri]</p>
         <p>age:12</p>
-        <p>favourite music:Thap drill tu do</p>
-        <p>Favourite food:idk but never eat shit+pia</p>
-        <p>best skill in life:lazy</p>
-        <p>welcome to dungxnogay's bio</p>
+        <p>best skill in life:lazy :D</p>
+<p>skill(code):Lua,python,Html</p>
+<p>note:i learn code to desgin web,cheat roblox :D</p>
+<p>note2:learn code is to easy</p>
         <div class="social-links">
-            <a href="Dũng Bùi" style="background: #3b5998;">Facebook_name</a>
-            <a href="#" style="background: #1da1f2;">Tt</a>
-            <a href="#" style="background: #0077b5;">IN</a>
-            <a href="#" style="background: #333;">GH</a>
+            <a href="#" style="background: #3b5998;"><i class="fab fa-facebook-f"></i></a>
+            <a href="Dũng Bùi" style="background: #1da1f2;"><i class="fab fa-twitter"></i></a>
+            <a href="Iamkuri" style="background: #0077b5;"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" style="background: #333;"><i class="fab fa-github"></i></a>
         </div>
     </div>
+
+    <!-- Nút điều khiển nhạc -->
+    <div class="music-control" id="musicControl">
+        <i class="fas fa-music"></i>
+    </div>
+
+    <!-- Phần tử audio cho nhạc nền -->
+    <audio id="bgMusic" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        Trình duyệt của bạn không hỗ trợ audio ;D.
+    </audio>
 
     <script>
         const bio = document.getElementById('bio');
         const parallaxBg = document.getElementById('parallaxBg');
+        const musicControl = document.getElementById('musicControl');
+        const bgMusic = document.getElementById('bgMusic');
         let posX = window.innerWidth / 2 - bio.offsetWidth / 2;
         let posY = window.innerHeight / 2 - bio.offsetHeight / 2;
         let startX, startY;
         let bgX = 0, bgY = 0;
+        let isMusicPlaying = false;
         
         // Vị trí ban đầu
         bio.style.left = posX + 'px';
@@ -207,6 +243,32 @@
             
             bio.style.transform = `rotateX(${tiltY}deg) rotateY(${-tiltX}deg)`;
         });
+        
+        // Điều khiển nhạc nền
+        musicControl.addEventListener('click', function() {
+            if (isMusicPlaying) {
+                bgMusic.pause();
+                musicControl.innerHTML = '<i class="fas fa-music"></i>';
+            } else {
+                bgMusic.play();
+                musicControl.innerHTML = '<i class="fas fa-pause"></i>';
+            }
+            isMusicPlaying = !isMusicPlaying;
+        });
+        
+        // Tự động bật nhạc (bị chặn trên nhiều trình duyệt do chính sách autoplay)
+        document.addEventListener('click', function initAudio() {
+            if (!isMusicPlaying) {
+                bgMusic.volume = 0.3; // Giảm âm lượng
+                bgMusic.play()
+                    .then(() => {
+                        isMusicPlaying = true;
+                        musicControl.innerHTML = '<i class="fas fa-pause"></i>';
+                    })
+                    .catch(e => console.log('Autoplay bị chặn:', e));
+                document.removeEventListener('click', initAudio);
+            }
+        }, { once: true });
         
         // Khởi tạo
         window.addEventListener('load', function() {
